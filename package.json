@@ -1,0 +1,23 @@
+{
+  "name": "NoLimit-NodeProcessSelfDestruct",
+  "version": "0.0.1",
+  "description": "Module that should be called from NodeJs's child process(es) to kill himself with configurable parameters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nolimitid",
+    "nodejs",
+    "child",
+    "process",
+    "kill",
+    "self",
+    "destruct"
+  ],
+  "author": "Andi N. Dirgantara",
+  "license": "MIT",
+  "dependencies": {
+    "node-schedule": "^0.1.13"
+  }
+}
