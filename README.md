@@ -13,24 +13,31 @@ SelfDestruct = require('./local_modules/node-process-self-destruct');
 There are 2 methods to call scheduled self destruct:
 
 1. Give exact date, see example
-```node
-new SelfDestruct({
-    datetime: 'yyyy,MM,dd,hh,mm,ss'
-});
-```
+    ```node
+    new SelfDestruct({
+        datetime: 'yyyy,MM,dd,hh,mm,ss'
+    });
+    ```
 where
-```
-yyyy = years, like 2014
-MM = month, like 10
-dd = date, like 03
-hh = hours, like 10
-mm = minutes, like 30
-ss = seconds, like 10
-```
+    ```
+    yyyy = years, like 2014
+    MM = month, like 10
+    dd = date, like 03
+    hh = hours, like 10
+    mm = minutes, like 30
+    ss = seconds, like 10
+    ```
 2. Give next minutes schedule, see example
-```node
-new SelfDestruct({
-    nextMinutes: 30
-});
-```
+    ```
+    new SelfDestruct({
+        nextMinutes: 30
+    });
+    ```
+where `nextMinutes` is an Integer that represent the next minutes that process will be ended
+3. Give date object, see example
+    ```
+    new SelfDestruct({
+        dateObject: new Date(2015, 10, 03, 05, 00, 00)
+    });
+    ```
 where `nextMinutes` is an Integer that represent the next minutes that process will be ended

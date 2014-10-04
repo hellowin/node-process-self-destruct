@@ -1,8 +1,12 @@
 {
-  "name": "NoLimit-NodeProcessSelfDestruct",
-  "version": "0.0.1",
-  "description": "Module that should be called from NodeJs's child process(es) to kill himself with configurable parameters.",
+  "name": "nolimitid-node-process-self-destruct",
+  "version": "0.0.2",
+  "description": "Use this module to kill NodeJS process(es) with configurable parameters.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellowin/node-process-self-destruct.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

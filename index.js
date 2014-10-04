@@ -5,28 +5,43 @@ var schedule = require('node-schedule'),
 var SelfDestruct = function(arg){
     var that = this,
         config = arg || null;
+    
+    that.date = null;
+    that.schedule = null;
+    
     if(arg){
-        var datetime = arg.datetime || null,
+        var datetime    = arg.datetime || null,
             nextMinutes = arg.nextMinutes || null,
-            date;
+            dateObject  = arg.dateObject || null;
         if(datetime){
             var input   = datetime.split(',');
-            
-            date        = new Date(input[0], parseInt(input[1])-1, input[2], input[3], input[4], input[5]);
-            schedule.scheduleJob(date, function(){
-                that.exit();
-            });
+            that.date   = new Date(input[0], parseInt(input[1])-1, input[2], input[3], input[4], input[5]);
+            that.start();
         }
         else if(nextMinutes){
-            date        = new Date(new Date().getTime() + nextMinutes*60000);
-            console.log(date);
-            schedule.scheduleJob(date, function(){
-                that.exit();
-            });
+            that.date   = new Date(new Date().getTime() + nextMinutes*60000);
+            that.start();
+        }
+        else if(dateObject){
+            that.date   = dateObject;
+            that.start();
         }
     }
     
-    this.exit = function(){
+    that.start = function(){
+        that.schedule = schedule.scheduleJob(that.date, function(){
+            console.log('Self destruct activated!');
+            console.log('I will suicide at ', that.date.toISOString());
+            that.exit();
+        });
+    };
+    
+    that.cancel = function(){
+        console.log('Self destruct deactived');
+        that.schedule.cancel();
+    };
+    
+    that.exit = function(){
         console.log('Bye bye world...');
         process.exit(0);
     };
